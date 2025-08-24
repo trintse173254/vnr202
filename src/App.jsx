@@ -1,0 +1,39 @@
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ConfigProvider } from 'antd'
+import Layout from './components/Layout'
+import BaoCap from './pages/BaoCap'
+import DoiMoi from './pages/DoiMoi'
+import NhanDinh from './pages/NhanDinh'
+import Timeline from './pages/Timeline'
+import TuLieu from './pages/TuLieu'
+
+const theme = {
+  token: {
+    colorPrimary: '#B71C1C',
+    colorInfo: '#B71C1C',
+    colorSuccess: '#FFD700',
+    fontFamily: 'Inter, Roboto, sans-serif',
+  },
+}
+
+function App() {
+  return (
+    <ConfigProvider theme={theme}>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<BaoCap />} />
+            <Route path="/bao-cap" element={<BaoCap />} />
+            <Route path="/doi-moi" element={<DoiMoi />} />
+            <Route path="/nhan-dinh" element={<NhanDinh />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/tu-lieu" element={<TuLieu />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ConfigProvider>
+  )
+}
+
+export default App
