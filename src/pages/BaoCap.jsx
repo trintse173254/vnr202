@@ -24,7 +24,7 @@ const BaoCap = () => {
         
         {/* Hero Section */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-16 mt-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -497,20 +497,20 @@ const BaoCap = () => {
               <motion.div variants={fadeInUp} className="relative flex items-center">
                 <div className="w-1/2 pr-8 text-right">
                   <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-red-50 to-red-100 border-red-200">
-                    <div className="flex items-center justify-end space-x-4">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-red-800 mb-2">1976</h3>
-                        <h4 className="text-lg font-semibold text-red-700 mb-3">Đổi tên nước</h4>
-                        <p className="text-sm text-gray-700 mb-4">
-                          Quốc hội khóa VI quyết định đổi tên nước thành <strong>Cộng hòa Xã hội Chủ nghĩa Việt Nam</strong>
-                        </p>
-                      </div>
-                      <div className="w-24 h-24 rounded-lg overflow-hidden shadow-md">
+                    <div className="text-center">
+                      <div className="w-full h-full mx-auto rounded-lg overflow-hidden shadow-md mb-4">
                         <Image
                           src="https://file.qdnd.vn/data/images/0/2016/04/22/phucthang/22042016tcq01.jpg?w=578"
                           alt="Quốc hội Khóa VI"
                           className="w-full h-full object-cover"
                         />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-red-800 mb-2">1976</h3>
+                        <h4 className="text-lg font-semibold text-red-700 mb-3">Đổi tên nước</h4>
+                        <p className="text-sm text-gray-700">
+                          Quốc hội khóa VI quyết định đổi tên nước thành <strong>Cộng hòa Xã hội Chủ nghĩa Việt Nam</strong>
+                        </p>
                       </div>
                     </div>
                   </Card>
@@ -531,18 +531,18 @@ const BaoCap = () => {
                 
                 <div className="w-1/2 pl-8">
                   <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-24 h-24 rounded-lg overflow-hidden shadow-md">
+                    <div className="text-center">
+                      <div className="w-full h-full mx-auto rounded-lg overflow-hidden shadow-md mb-4">
                         <Image
                           src="https://file3.qdnd.vn/data/images/0/2022/11/29/huyentrang_km/dai%20hoi%20dai%20bieu%20toan%20quoc%20lan%20thu%204.jpg?dpi=150&quality=100&w=870"
                           alt="Đại hội Đảng IV"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="flex-1">
+                      <div>
                         <h3 className="text-xl font-bold text-blue-800 mb-2">1976</h3>
                         <h4 className="text-lg font-semibold text-blue-700 mb-3">Đại hội IV</h4>
-                        <p className="text-sm text-gray-700 mb-4">
+                        <p className="text-sm text-gray-700">
                           Đề ra mục tiêu đưa cả nước lên CNXH, đẩy mạnh công nghiệp hóa
                         </p>
                       </div>
@@ -555,20 +555,20 @@ const BaoCap = () => {
               <motion.div variants={fadeInUp} className="relative flex items-center">
                 <div className="w-1/2 pr-8 text-right">
                   <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-orange-50 to-orange-100 border-orange-200">
-                    <div className="flex items-center justify-end space-x-4">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-orange-800 mb-2">1978-1989</h3>
-                        <h4 className="text-lg font-semibold text-orange-700 mb-3">Chiến tranh biên giới Tây Nam</h4>
-                        <p className="text-sm text-gray-700 mb-4">
-                          Chiến tranh với tập đoàn diệt chủng Khmer Đỏ, giải phóng nhân dân Campuchia
-                        </p>
-                      </div>
-                      <div className="w-24 h-24 rounded-lg overflow-hidden shadow-md">
+                    <div className="text-center">
+                      <div className="w-full h-full mx-auto rounded-lg overflow-hidden shadow-md mb-4">
                         <Image
                           src="https://media.vov.vn/sites/default/files/styles/large/public/2025-01/khmer_do_7.jpg"
                           alt="Giải phóng Phnom Penh"
                           className="w-full h-full object-cover"
                         />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-orange-800 mb-2">1978-1989</h3>
+                        <h4 className="text-lg font-semibold text-orange-700 mb-3">Chiến tranh biên giới Tây Nam</h4>
+                        <p className="text-sm text-gray-700">
+                          Chiến tranh với tập đoàn diệt chủng Khmer Đỏ, giải phóng nhân dân Campuchia
+                        </p>
                       </div>
                     </div>
                   </Card>
@@ -589,18 +589,18 @@ const BaoCap = () => {
                 
                 <div className="w-1/2 pl-8">
                   <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-green-50 to-green-100 border-green-200">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-24 h-24 rounded-lg overflow-hidden shadow-md">
+                    <div className="text-center">
+                      <div className="w-full h-full mx-auto rounded-lg overflow-hidden shadow-md mb-4">
                         <Image
                           src="https://i1-vnexpress.vnecdn.net/2019/01/05/3-1546674982.jpg?w=1200&h=0&q=100&dpr=2&fit=crop&s=8Mq4MOtiMFBhrSbKLQGHtA"
                           alt="Quân tình nguyện VN tại Phnom Penh"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="flex-1">
+                      <div>
                         <h3 className="text-xl font-bold text-green-800 mb-2">7/1/1979</h3>
                         <h4 className="text-lg font-semibold text-green-700 mb-3">Giải phóng Phnom Penh</h4>
-                        <p className="text-sm text-gray-700 mb-4">
+                        <p className="text-sm text-gray-700">
                           Quân tình nguyện Việt Nam tiến vào giải phóng thủ đô Phnom Penh, lật đổ chế độ Khmer Đỏ
                         </p>
                       </div>
@@ -613,20 +613,20 @@ const BaoCap = () => {
               <motion.div variants={fadeInUp} className="relative flex items-center">
                 <div className="w-1/2 pr-8 text-right">
                   <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-200">
-                    <div className="flex items-center justify-end space-x-4">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-yellow-800 mb-2">1979-1989</h3>
-                        <h4 className="text-lg font-semibold text-yellow-700 mb-3">Chiến tranh biên giới phía Bắc</h4>
-                        <p className="text-sm text-gray-700 mb-4">
-                          Chiến tranh biên giới với Trung Quốc, bảo vệ chủ quyền lãnh thổ
-                        </p>
-                      </div>
-                      <div className="w-24 h-24 rounded-lg overflow-hidden shadow-md">
+                    <div className="text-center">
+                      <div className="w-full h-full mx-auto rounded-lg overflow-hidden shadow-md mb-4">
                         <Image
                           src="https://danviet.ex-cdn.com/files/f1/upload/1-2019/images/2019-02-14/Loat-anh-kho-quen-cuoc-chien-tranh-bien-gioi-phia-Bac-1979-241-1550156356-width674height500.jpg"
                           alt="Chiến tranh biên giới phía Bắc"
                           className="w-full h-full object-cover"
                         />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-yellow-800 mb-2">1979-1989</h3>
+                        <h4 className="text-lg font-semibold text-yellow-700 mb-3">Chiến tranh biên giới phía Bắc</h4>
+                        <p className="text-sm text-gray-700">
+                          Chiến tranh biên giới với Trung Quốc, bảo vệ chủ quyền lãnh thổ
+                        </p>
                       </div>
                     </div>
                   </Card>

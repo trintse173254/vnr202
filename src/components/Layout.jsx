@@ -7,7 +7,7 @@ const menuItems = [
   { path: '/doi-moi', label: 'Thành tựu Đổi mới', icon: '📈' },
   { path: '/nhan-dinh', label: 'Nhận định', icon: '⭐' },
   { path: '/timeline', label: 'Timeline', icon: '⏳' },
-  { path: '/tu-lieu', label: 'Tư liệu', icon: '📂' },
+  // { path: '/tu-lieu', label: 'Tư liệu', icon: '📂' },
   { path: '/quiz', label: 'Quiz', icon: '❓' },
 ]
 
@@ -65,7 +65,7 @@ const Layout = ({ children }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="p-8"
+          className=""
         >
           {children}
         </motion.div>
