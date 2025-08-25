@@ -33,7 +33,7 @@ const Timeline = () => {
       >
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Thành tựu của thời kỳ đổi mới
+            Timeline
           </h1>
           <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
             Một số thành tựu nổi bật mà Việt Nam đạt được trong thời kỳ đổi mới (1976-nay)

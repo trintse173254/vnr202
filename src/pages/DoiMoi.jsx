@@ -27,17 +27,17 @@ const DoiMoi = () => {
     { year: 2024, fdi: 25.35 }
    ];
 
-  const quizData = {
-    question: "Đổi mới kinh tế Việt Nam bắt đầu từ năm nào?",
-    options: [
-      "1975",
-      "1986", 
-      "1990",
-      "1995"
-    ],
-    correctAnswer: 1,
-    explanation: "Đại hội VI của Đảng (12/1986) đã chính thức khởi động chính sách Đổi mới, chuyển từ kinh tế kế hoạch hóa tập trung sang kinh tế thị trường định hướng xã hội chủ nghĩa."
-  }
+  // const quizData = {
+  //   question: "Đổi mới kinh tế Việt Nam bắt đầu từ năm nào?",
+  //   options: [
+  //     "1975",
+  //     "1986", 
+  //     "1990",
+  //     "1995"
+  //   ],
+  //   correctAnswer: 1,
+  //   explanation: "Đại hội VI của Đảng (12/1986) đã chính thức khởi động chính sách Đổi mới, chuyển từ kinh tế kế hoạch hóa tập trung sang kinh tế thị trường định hướng xã hội chủ nghĩa."
+  // }
 
   return (
     <div className="max-w-6xl mx-auto mt-20">
@@ -46,9 +46,19 @@ const DoiMoi = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="section-header">Thành tựu Đổi mới (1986 - nay)</h1>
-        <div className="section-quote">
-          "Đổi mới là con đường tất yếu khách quan, là cuộc cách mạng sâu sắc, toàn diện của Việt Nam"
+        <div className="text-center mb-12">
+          <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            <span className="bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent">
+              Thành tựu của thời kỳ
+            </span>
+            <br />
+            <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+              đổi mới
+            </span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed">
+            (1976-nay)
+          </p>
         </div>
 
         {/* Kinh tế Section */}
