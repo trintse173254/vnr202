@@ -8,6 +8,7 @@ const menuItems = [
   { path: '/nhan-dinh', label: 'Nhận định', icon: '⭐' },
   { path: '/timeline', label: 'Timeline', icon: '⏳' },
   { path: '/tu-lieu', label: 'Tư liệu', icon: '📂' },
+  { path: '/quiz', label: 'Quiz', icon: '❓' },
 ]
 
 const Layout = ({ children }) => {

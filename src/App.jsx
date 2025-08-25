@@ -7,6 +7,7 @@ import DoiMoi from './pages/DoiMoi'
 import NhanDinh from './pages/NhanDinh'
 import Timeline from './pages/Timeline'
 import TuLieu from './pages/TuLieu'
+import QuizPage from './pages/QuizPage'
 
 const theme = {
   token: {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/nhan-dinh" element={<NhanDinh />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/tu-lieu" element={<TuLieu />} />
+            <Route path="/quiz" element={<QuizPage />} />
           </Routes>
         </Layout>
       </Router>

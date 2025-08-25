@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Tooltip } from 'antd'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 import { motion } from 'framer-motion'
-import Quiz from '../components/Quiz'
 
 const DoiMoi = () => {
   const gdpData = [
