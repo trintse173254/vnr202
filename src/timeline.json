@@ -1,0 +1,151 @@
+[
+    {
+        "time": "1985",
+        "main": "Đổi tiền và cải cách tiền tệ",
+        "detail": "Phát hành bộ tiền giấy mới, chuẩn bị cho Đổi Mới",
+        "img": "https://lh4.googleusercontent.com/proxy/3d6R0Ej5LA1Uv43z5_ojuEBu2WH_ALwhv1DbJP2_l2de2sOX81X2PRaeEg8aXAehthHBVpxfwqzRkIIBmOKwROfvO7vO_gSeW3epGEd970Sj_yWkHZCjWmI",
+        "icon": "money",
+        "info": [
+            "Lạm phát đỉnh 774,7%",
+            "Quy mô kinh tế chỉ 26,88 tỷ USD",
+            "Đời sống khó khăn"
+        ]
+    },
+    {
+        "time": "1986",
+        "main": "Khởi xướng Đổi Mới tại Đại hội VI Đảng",
+        "detail": "Đại hội khởi xướng Đổi Mới toàn diện",
+        "img": "https://file3.qdnd.vn/data/images/0/2025/01/29/upload_2176/dhvi.jpg",
+        "icon": "policy",
+        "info": [
+            "Xóa bỏ kinh tế bao cấp",
+            "Thực hiện cơ cấu kinh tế nhiều thành phần",
+            "Giải phóng lực lượng sản xuất"
+        ]
+    },
+    {
+        "time": "1986-1990",
+        "main": "Giai đoạn đầu Đổi Mới",
+        "detail": "Tăng trưởng GDP bình quân 4,4%/năm",
+        "img": "https://image.tinnhanhchungkhoan.vn/400x300/Uploaded/2025/WpxlCdjwi/2014_03_28/5dt_QFHP.bmp",
+        "icon": "growth",
+        "info": [
+            "Kim ngạch xuất khẩu tăng 28%/năm",
+            "Nền kinh tế ra khỏi trì trệ",
+            "Vượt chỉ tiêu chủ yếu"
+        ]
+    },
+    {
+        "time": "1991-1995",
+        "main": "Tiếp tục chính sách kinh tế nhiều thành phần",
+        "detail": "Tăng trưởng GDP bình quân 8,2%/năm",
+        "img": "https://vnn-imgs-f.vgcloud.vn/2018/12/13/14/hoi-nong-dan-viet-nam-da-co-10-2-trieu-thanh-vien.jpg?width=0&s=RfjIV0EM3dIEmJdI3UM4vw",
+        "icon": "agriculture",
+        "info": [
+            "Sản lượng lương thực tăng 27%",
+            "Việt Nam thành nước xuất khẩu hàng đầu về gạo, cà phê, hạt điều, cao su"
+        ]
+    },
+    {
+        "time": "1995",
+        "main": "Gia nhập ASEAN và bình thường hóa quan hệ với Mỹ",
+        "detail": "Kết nạp vào ASEAN và bình thường hóa với Mỹ",
+        "img": "https://bcp.cdnchinhphu.vn/334894974524682240/2025/3/10/tbt4-100325-17415887745011997278576.jpg",
+        "icon": "handshake",
+        "info": [
+            "Mở cơ hội hội nhập quốc tế",
+            "Thúc đẩy thương mại quốc tế"
+        ]
+    },
+    {
+        "time": "1996-2000",
+        "main": "Đẩy mạnh công nghiệp hóa, hiện đại hóa",
+        "detail": "Tăng trưởng GDP bình quân 7%/năm",
+        "img": "https://cdn.thuvienphapluat.vn/uploads/tintuc/2023/12/14/cong-nghiep-hoa-hien-dai-hoa-viet-nam.jpg",
+        "icon": "industry",
+        "info": [
+            "Vượt khủng hoảng tài chính châu Á 1997",
+            "Duy trì tăng trưởng ổn định"
+        ]
+    },
+    {
+        "time": "2001",
+        "main": "Đại hội IX xác định kinh tế thị trường định hướng xã hội chủ nghĩa",
+        "detail": "Đại hội đặt nền móng cho mô hình kinh tế tổng quát",
+        "img": "https://cdn-images.vtv.vn/thumb_w/730/2020/6/6/dh9-1591457893186476988116.jpg",
+        "icon": "policy",
+        "info": [
+            "Trong thời kỳ quá độ lên chủ nghĩa xã hội"
+        ]
+    },
+    {
+        "time": "2001-2005",
+        "main": "Đi vào chiều sâu Đổi Mới",
+        "detail": "Tăng trưởng GDP bình quân 7,5%/năm",
+        "img": "https://imgcdn.tapchicongthuong.vn/tcct-media/23/7/16/san-xuat-cong-nghiep.jpg",
+        "icon": "growth",
+        "info": [
+            "Chuyển dịch cơ cấu kinh tế từ nông nghiệp sang công nghiệp - dịch vụ"
+        ]
+    },
+    
+    {
+        "time": "2006-2010",
+        "main": "Ra khỏi tình trạng kém phát triển",
+        "detail": "Tăng trưởng GDP bình quân 7,26%/năm",
+        "img": "https://tttctt.1cdn.vn/2023/06/29/tang-truong-kinh-te-viet-nam.jpg",
+        "icon": "develop",
+        "info": [
+            "Việt Nam thành nước thu nhập trung bình thấp",
+            "Tiềm lực kinh tế tăng lên"
+        ]
+    },
+    {
+        "time": "2007",
+        "main": "Gia nhập WTO",
+        "detail": "Trở thành thành viên thứ 150 của WTO",
+        "img": "https://media.vov.vn/sites/default/files/styles/large/public/2022-01/8f52c48066f99aed1afdf5b5000d6e7d.jpg",
+        "icon": "globe",
+        "info": [
+            "Thu hút FDI hơn 236 tỷ USD (1988-2012)",
+            "Mở rộng quan hệ kinh tế quốc tế"
+        ]
+    },
+    {
+        "time": "2011-2020",
+        "main": "Duy trì tăng trưởng ổn định",
+        "detail": "Tăng trưởng GDP bình quân gần 6%/năm",
+        "img": "https://consosukien.vn/pic/News/duy-tri-tang-truong-cao-ben-vung-lien-tuc-trong-thoi-gian-tu-nay-toi-2045.jpg",
+        "icon": "stable",
+        "info": [
+            "GDP đạt 343,6 tỷ USD (2020)",
+            "Thu nhập bình quân đầu người 3.521 USD",
+            "Giảm nghèo từ 58% (1993) xuống dưới 2% (2020)"
+        ]
+    },
+    {
+        "time": "2019",
+        "main": "Ký Hiệp định EVFTA và IPA với Châu Âu",
+        "detail": "Sau 9 năm đàm phán, ký hiệp định với Châu Âu",
+        "img": "https://www.tapchicongsan.org.vn/image/journal/article?img_id=27806396&t=1584202343729",
+        "icon": "eu",
+        "info": [
+            "Mở cơ hội thương mại với 28 nước Châu Âu",
+            "Thúc đẩy xuất khẩu và hội nhập"
+        ]
+    },
+    {
+        "time": "2021-2025",
+        "main": "Đẩy mạnh công nghiệp hóa và hội nhập",
+        "detail": "Tăng trưởng GDP bình quân 6-7%/năm",
+        "img": "https://thuonghieuvaphapluat.vn/Images/vantoi/2021/01/26/vi-the-viet-nam-4-221351.jpg",
+        "icon": "future",
+        "info": [
+            "GDP đạt 490,97 tỷ USD (nominal, 2025)",
+            "Xếp thứ 5 Đông Nam Á",
+            "Giảm nghèo đa chiều xuống dưới 1% (2024-2025)",
+            "Quan hệ ngoại giao với 194 quốc gia",
+            "Tiến bộ khoa học công nghệ và bền vững (cam kết net-zero 2050)"
+        ]
+    }
+]

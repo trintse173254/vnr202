@@ -1,66 +1,27 @@
 import React, { useState } from 'react'
-import { Card, Tooltip } from 'antd'
-import { motion } from 'framer-motion'
-import Quiz from '../components/Quiz'
+import { Card } from 'antd'
+import { motion, AnimatePresence } from 'framer-motion'
+import data from '../timeline.json'
 
 const Timeline = () => {
-  const [selectedEvent, setSelectedEvent] = useState(null)
+  const [openIndex, setOpenIndex] = useState(null)
 
-  const timelineEvents = [
-    {
-      year: 1954,
-      title: "Chiến thắng Điện Biên Phủ",
-      description: "Kết thúc ách thống trị của thực dân Pháp, mở ra kỷ nguyên độc lập dân tộc",
-      details: "Chiến thắng lịch sử làm rung chuyển thế giới, khẳng định ý chí và sức mạnh của dân tộc Việt Nam",
-      color: "bg-red-500"
-    },
-    {
-      year: 1975,
-      title: "Thống nhất đất nước",
-      description: "Giải phóng hoàn toàn miền Nam, thống nhất Tổ quốc",
-      details: "30/4/1975 - Ngày giải phóng miền Nam, thống nhất đất nước. Kết thúc chiến tranh, bắt đầu xây dựng đất nước",
-      color: "bg-green-500"
-    },
-    {
-      year: 1986,
-      title: "Khởi động Đổi mới",
-      description: "Đại hội VI của Đảng, chính sách Đổi mới được ra đời",
-      details: "Chuyển từ kinh tế kế hoạch hóa tập trung sang kinh tế thị trường định hướng XHCN",
-      color: "bg-blue-500"
-    },
-    {
-      year: 2000,
-      title: "Bước vào thiên niên kỷ mới",
-      description: "Kinh tế phát triển ổn định, hội nhập quốc tế sâu rộng",
-      details: "GDP tăng trưởng cao, xuất khẩu phát triển mạnh, đời sống nhân dân được cải thiện",
-      color: "bg-purple-500"
-    },
-    {
-      year: 2010,
-      title: "Phát triển toàn diện",
-      description: "Đạt mức thu nhập trung bình thấp, công nghiệp hóa mạnh mẽ",
-      details: "Cơ sở hạ tầng hiện đại, giáo dục y tế phát triển, vị thế quốc tế nâng cao",
-      color: "bg-orange-500"
-    },
-    {
-      year: 2020,
-      title: "Thành tựu toàn diện",
-      description: "Ứng phó thành công COVID-19, kinh tế phục hồi nhanh",
-      details: "Thể hiện năng lực quản trị, sức mạnh của hệ thống chính trị và tinh thần đoàn kết dân tộc",
-      color: "bg-teal-500"
-    }
-  ]
+  const toggle = (index) => {
+    setOpenIndex((prev) => (prev === index ? null : index))
+  }
 
-  const quizData = {
-    question: "Sự kiện nào đánh dấu bước ngoặt quan trọng nhất trong lịch sử Việt Nam hiện đại?",
-    options: [
-      "Chiến thắng Điện Biên Phủ (1954)",
-      "Thống nhất đất nước (1975)",
-      "Đổi mới kinh tế (1986)",
-      "Tất cả đều quan trọng"
-    ],
-    correctAnswer: 3,
-    explanation: "Mỗi sự kiện đều có ý nghĩa lịch sử quan trọng: 1954 mở ra độc lập, 1975 thống nhất đất nước, 1986 đổi mới phát triển. Tất cả đều là những bước ngoặt then chốt."
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
   }
 
   return (
@@ -70,177 +31,186 @@ const Timeline = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="section-header">Timeline Lịch sử Việt Nam</h1>
-        <div className="section-quote">
-          "Lịch sử là dòng chảy liên tục của những thành tựu và bài học quý báu"
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Thành tựu của thời kỳ đổi mới
+          </h1>
+          <p className="mt-4 text-lg md:text-xl text-gray-600 max-w-4xl mx-auto">
+            Một số thành tựu nổi bật mà Việt Nam đạt được trong thời kỳ đổi mới (1976-nay)
+          </p>
         </div>
 
-        {/* Horizontal Timeline */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <Card className="content-card mb-8">
-            <h3 className="text-xl font-semibold text-primary mb-6 text-center">
-              ⏳ Dòng thời gian lịch sử
-            </h3>
-            
-            <div className="relative">
-              {/* Timeline Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary transform -translate-y-1/2"></div>
-              
-              {/* Timeline Events */}
-              <div className="relative flex justify-between items-center py-8">
-                {timelineEvents.map((event, index) => (
+        <Card className="content-card">
+          <div className="relative">
+            <motion.div
+              className="absolute left-1/2 top-0 -translate-x-1/2 h-full w-1 bg-primary"
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: false, amount: 0.2 }}
+              style={{ originY: 0 }}
+            ></motion.div>
+
+            <div className="space-y-12">
+              {data.map((item, index) => {
+                const isLeft = index % 2 === 0
+                const isOpen = openIndex === index
+                const renderIcon = (name) => {
+                  const base = 'w-4 h-4 text-white'
+                  switch (name) {
+                    case 'money':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M21 7H3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm-9 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm8-5h-2v4h2V10ZM4 10v4h2v-4H4Z"/>
+                        </svg>
+                      )
+                    case 'policy':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM7 12h10v2H7v-2Zm0 4h10v2H7v-2Zm0-8h5v2H7V8Z"/>
+                        </svg>
+                      )
+                    case 'growth':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M3 3h2v18H3V3Zm18 14-4.5-4.5-3 3L9 11l-4 4v3h16v-1.5Z"/>
+                        </svg>
+                      )
+                    case 'agriculture':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M12 2a7 7 0 0 1 7 7c0 3.87-3.13 7-7 7S5 12.87 5 9a7 7 0 0 1 7-7Zm0 16c4.97 0 9 2.24 9 5v1H3v-1c0-2.76 4.03-5 9-5Z"/>
+                        </svg>
+                      )
+                    case 'handshake':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M16.5 9 14 6.5 9.5 11 8 9.5 3 14.5l2 2L8 13.5l1.5 1.5 5-5L16.5 9ZM18 6h3v12h-3V6ZM3 6h3v12H3V6Z"/>
+                        </svg>
+                      )
+                    case 'industry':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M2 20h20v-8l-6-3v3L9 9v3L2 8v12Z"/>
+                        </svg>
+                      )
+                    case 'globe':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"/>
+                        </svg>
+                      )
+                    case 'develop':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="m8 5-6 7 6 7 1.5-1.3L5 12l4.5-5.7L8 5Zm8 0-1.5 1.3L19 12l-4.5 5.7L16 19l6-7-6-7Z"/>
+                        </svg>
+                      )
+                    case 'stable':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M4 18h16v2H4v-2ZM4 4h2v10H4V4Zm7 0h2v10h-2V4Zm7 0h2v10h-2V4Z"/>
+                        </svg>
+                      )
+                    case 'eu':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm3 7h-2l-1-2-1 2H9l1.6 1.2-.6 2L12 11l2 .2-.6-2L15 9Z"/>
+                        </svg>
+                      )
+                    case 'future':
+                      return (
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={base}>
+                          <path d="M12 6v6l4 2-.7 1.9L10 13V6h2ZM12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"/>
+                        </svg>
+                      )
+                    default:
+                      return null
+                  }
+                }
+                return (
                   <motion.div
-                    key={event.year}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
-                    className="flex flex-col items-center cursor-pointer group"
-                    onMouseEnter={() => setSelectedEvent(event)}
-                    onMouseLeave={() => setSelectedEvent(null)}
+                    key={`${item.time}-${index}`}
+                    className={`relative flex items-stretch ${isLeft ? 'justify-start' : 'justify-end'}`}
+                    variants={itemVariants}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.2 }}
                   >
-                    {/* Event Dot */}
-                    <div className={`w-6 h-6 ${event.color} rounded-full border-4 border-white shadow-lg group-hover:scale-125 transition-transform duration-300 z-10`}></div>
-                    
-                    {/* Year Label */}
-                    <div className="mt-3 text-sm font-bold text-primary group-hover:text-accent transition-colors">
-                      {event.year}
+                    {/* Dot */}
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary border-2 border-white shadow flex items-center justify-center">
+                      {renderIcon(item.icon)}
                     </div>
-                    
-                    {/* Event Title */}
-                    <div className="mt-1 text-xs text-center max-w-20 group-hover:text-primary transition-colors">
-                      {event.title}
-                    </div>
+
+                    {/* Card */}
+                    <button
+                      onClick={() => toggle(index)}
+                      className={`w-full md:w-1/2 text-left group focus:outline-none ${isLeft ? 'pr-10' : 'pl-10'}`}
+                    >
+                      <div className={`rounded-2xl shadow-lg p-5 bg-white border-2 ${isOpen ? 'border-accent' : 'border-transparent'} hover:border-accent transition-colors`}
+                      >
+                        <div className="flex items-center mb-2">
+                          <div className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center bg-primary text-white font-bold mr-3">
+                            {renderIcon(item.icon)}
+                          </div>
+                          <div>
+                            <div className="text-sm font-semibold text-primary">{item.time}</div>
+                            <div className="text-lg font-bold">{item.main}</div>
+                            {item.detail && (
+                              <div className="text-sm text-gray-600">{item.detail}</div>
+                            )}
+                          </div>
+                        </div>
+
+                        <AnimatePresence>
+                          {isOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.3, ease: 'easeInOut' }}
+                              className="mt-3"
+                            >
+                              {item.img && (
+                                <motion.img
+                                  initial={{ opacity: 0, scale: 0.9 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ delay: 0.1, duration: 0.3 }}
+                                  src={item.img}
+                                  alt={item.main}
+                                  className="w-full rounded-lg mb-3 border-2 border-accent"
+                                />
+                              )}
+                              {Array.isArray(item.info) && item.info.length > 0 && (
+                                <motion.ul
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.2, duration: 0.3 }}
+                                  className="list-disc pl-5 space-y-1 text-gray-700"
+                                >
+                                  {item.info.map((i, idx) => (
+                                    <motion.li
+                                      key={idx}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{ opacity: 1, x: 0 }}
+                                      transition={{ delay: 0.3 + idx * 0.05, duration: 0.3 }}
+                                    >
+                                      {i}
+                                    </motion.li>
+                                  ))}
+                                </motion.ul>
+                              )}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </button>
                   </motion.div>
-                ))}
-              </div>
+                )
+              })}
             </div>
-          </Card>
-        </motion.div>
-
-        {/* Event Details */}
-        {selectedEvent && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Card className="content-card mb-6 border-l-4 border-primary">
-              <div className="flex items-start space-x-4">
-                <div className={`w-12 h-12 ${selectedEvent.color} rounded-full flex items-center justify-center text-white font-bold text-lg`}>
-                  {selectedEvent.year.toString().slice(-2)}
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-xl font-bold text-primary mb-2">
-                    {selectedEvent.year} - {selectedEvent.title}
-                  </h4>
-                  <p className="text-gray-700 mb-3">{selectedEvent.description}</p>
-                  <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">
-                    {selectedEvent.details}
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </motion.div>
-        )}
-
-        {/* Detailed Timeline Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {timelineEvents.map((event, index) => (
-              <motion.div
-                key={event.year}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <Card className="content-card h-full hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex items-center mb-3">
-                    <div className={`w-8 h-8 ${event.color} rounded-full flex items-center justify-center text-white font-bold text-sm mr-3`}>
-                      {event.year.toString().slice(-2)}
-                    </div>
-                    <h4 className="font-bold text-primary">{event.year}</h4>
-                  </div>
-                  
-                  <h5 className="font-semibold mb-2">{event.title}</h5>
-                  <p className="text-sm text-gray-600 mb-3">{event.description}</p>
-                  <p className="text-xs text-gray-500 bg-gray-50 p-2 rounded">
-                    {event.details}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
           </div>
-        </motion.div>
-
-        {/* Historical Significance */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <Card className="content-card mb-6">
-            <h3 className="text-xl font-semibold text-primary mb-4">
-              📚 Ý nghĩa lịch sử
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
-                  <h5 className="font-semibold text-red-700">Giai đoạn đấu tranh (1954-1975)</h5>
-                  <p className="text-sm text-red-600">
-                    Từ Điện Biên Phủ đến thống nhất: Khẳng định ý chí độc lập, 
-                    tự do của dân tộc Việt Nam
-                  </p>
-                </div>
-                
-                <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
-                  <h5 className="font-semibold text-blue-700">Giai đoạn xây dựng (1975-1986)</h5>
-                  <p className="text-sm text-blue-600">
-                    Thống nhất đất nước, xây dựng chủ nghĩa xã hội: 
-                    Những khó khăn và bài học quý báu
-                  </p>
-                </div>
-              </div>
-              
-              <div className="space-y-4">
-                <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                  <h5 className="font-semibold text-green-700">Giai đoạn đổi mới (1986-2010)</h5>
-                  <p className="text-sm text-green-600">
-                    Đổi mới toàn diện: Từ kinh tế kế hoạch sang 
-                    kinh tế thị trường định hướng XHCN
-                  </p>
-                </div>
-                
-                <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
-                  <h5 className="font-semibold text-purple-700">Giai đoạn hội nhập (2010-nay)</h5>
-                  <p className="text-sm text-purple-600">
-                    Hội nhập quốc tế sâu rộng: Vị thế và uy tín 
-                    ngày càng được nâng cao
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        {/* Quiz Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-        >
-          <Quiz data={quizData} />
-        </motion.div>
+        </Card>
       </motion.div>
     </div>
   )
