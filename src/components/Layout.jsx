@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
       <div className="bg-primary shadow-2xl">
         {/* Header Section with Navigation */}
         <div className="px-6 py-2 h-18">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between ml-28">
             <div className="flex items-center space-x-4">
               <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Emblem_of_Vietnam.svg" alt="Flag of Vietnam" className="w-12 h-12" />
               <div>
@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
             </div>
             
             {/* Navigation Bar */}
-            <nav className="flex-1 ml-8">
+            <nav className="mr-28">
               <div className="flex justify-end space-x-1 overflow-x-auto">
                 {menuItems.map((item) => {
                   const isActive = location.pathname === item.path || 
