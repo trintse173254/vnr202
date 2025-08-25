@@ -3,23 +3,44 @@ import { Card, Button, Radio, Alert } from 'antd'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons'
 
-const Quiz = ({ data }) => {
+const Quiz = ({ questions }) => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [showResult, setShowResult] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
+  const [score, setScore] = useState(0)
+  const [answeredQuestions, setAnsweredQuestions] = useState(0)
+
+  const currentQuestion = questions[currentQuestionIndex]
 
   const handleSubmit = () => {
     if (selectedAnswer === null) return
     
-    const correct = selectedAnswer === data.correctAnswer
+    const correct = selectedAnswer === currentQuestion.correctAnswer
     setIsCorrect(correct)
     setShowResult(true)
+    setAnsweredQuestions(prev => prev + 1)
+    if (correct) {
+      setScore(prev => prev + 1)
+    }
+  }
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(prev => prev + 1)
+      setSelectedAnswer(null)
+      setShowResult(false)
+      setIsCorrect(false)
+    }
   }
 
   const handleReset = () => {
+    setCurrentQuestionIndex(0)
     setSelectedAnswer(null)
     setShowResult(false)
     setIsCorrect(false)
+    setScore(0)
+    setAnsweredQuestions(0)
   }
 
   return (
@@ -29,8 +50,26 @@ const Quiz = ({ data }) => {
         <h3 className="text-xl font-semibold text-primary">Kiểm tra kiến thức</h3>
       </div>
 
+      {/* Progress indicator */}
       <div className="mb-6">
-        <h4 className="font-medium text-gray-800 mb-4">{data.question}</h4>
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-sm text-gray-600">
+            Câu {currentQuestionIndex + 1} / {questions.length}
+          </span>
+          <span className="text-sm text-gray-600">
+            Điểm: {score} / {answeredQuestions}
+          </span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div 
+            className="bg-primary h-2 rounded-full transition-all duration-300"
+            style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
+          ></div>
+        </div>
+      </div>
+
+      <div className="mb-6">
+        <h4 className="font-medium text-gray-800 mb-4">{currentQuestion.question}</h4>
         
         <Radio.Group 
           value={selectedAnswer} 
@@ -39,7 +78,7 @@ const Quiz = ({ data }) => {
           className="w-full"
         >
           <div className="space-y-3">
-            {data.options.map((option, index) => (
+            {currentQuestion.options.map((option, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: showResult ? 1 : 1.02 }}
@@ -49,7 +88,7 @@ const Quiz = ({ data }) => {
                   value={index} 
                   className={`w-full p-3 rounded-lg border transition-all duration-300 ${
                     showResult 
-                      ? index === data.correctAnswer 
+                      ? index === currentQuestion.correctAnswer 
                         ? 'bg-green-50 border-green-300' 
                         : selectedAnswer === index && !isCorrect
                         ? 'bg-red-50 border-red-300'
@@ -60,7 +99,7 @@ const Quiz = ({ data }) => {
                   }`}
                 >
                   <span className={`ml-2 ${
-                    showResult && index === data.correctAnswer 
+                    showResult && index === currentQuestion.correctAnswer 
                       ? 'text-green-700 font-medium' 
                       : showResult && selectedAnswer === index && !isCorrect
                       ? 'text-red-700'
@@ -68,7 +107,7 @@ const Quiz = ({ data }) => {
                   }`}>
                     {option}
                   </span>
-                  {showResult && index === data.correctAnswer && (
+                  {showResult && index === currentQuestion.correctAnswer && (
                     <CheckCircleOutlined className="text-green-600 ml-2" />
                   )}
                   {showResult && selectedAnswer === index && !isCorrect && (
@@ -92,9 +131,30 @@ const Quiz = ({ data }) => {
             Kiểm tra đáp án
           </Button>
         ) : (
-          <Button onClick={handleReset} className="border-primary text-primary hover:bg-primary hover:text-white">
-            Làm lại
-          </Button>
+          <div className="flex gap-3">
+            {currentQuestionIndex < questions.length - 1 ? (
+              <Button 
+                type="primary"
+                onClick={handleNext}
+                className="bg-primary hover:bg-red-700"
+              >
+                Câu tiếp theo
+              </Button>
+            ) : (
+              <div className="flex gap-3">
+                <Alert
+                  message={`Hoàn thành! Điểm số: ${score}/${questions.length}`}
+                  description={`Bạn đã trả lời đúng ${score} trên ${questions.length} câu hỏi (${Math.round((score/questions.length)*100)}%)`}
+                  type={score >= questions.length * 0.7 ? "success" : score >= questions.length * 0.5 ? "warning" : "error"}
+                  showIcon
+                  className="rounded-lg flex-1"
+                />
+              </div>
+            )}
+            <Button onClick={handleReset} className="border-primary text-primary hover:bg-primary hover:text-white">
+              Làm lại từ đầu
+            </Button>
+          </div>
         )}
       </div>
 
@@ -106,13 +166,15 @@ const Quiz = ({ data }) => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <Alert
-              message={isCorrect ? "Chính xác! 🎉" : "Chưa đúng! 🤔"}
-              description={data.explanation}
-              type={isCorrect ? "success" : "error"}
-              showIcon
-              className="rounded-lg"
-            />
+            {currentQuestionIndex < questions.length - 1 && (
+              <Alert
+                message={isCorrect ? "Chính xác! 🎉" : "Chưa đúng! 🤔"}
+                description={currentQuestion.explanation}
+                type={isCorrect ? "success" : "error"}
+                showIcon
+                className="rounded-lg"
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
