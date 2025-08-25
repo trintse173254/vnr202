@@ -1,20 +1,8 @@
 import React from 'react'
 import { Card, Tooltip } from 'antd'
 import { motion } from 'framer-motion'
-import Quiz from '../components/Quiz'
 
 const NhanDinh = () => {
-  const quizData = {
-    question: "Thu nhập bình quân đầu người của Việt Nam năm 2023 đạt mức nào?",
-    options: [
-      "Khoảng 2,500 USD",
-      "Khoảng 4,300 USD", 
-      "Khoảng 6,000 USD",
-      "Khoảng 3,800 USD"
-    ],
-    correctAnswer: 1,
-    explanation: "Theo bài viết của Thủ tướng Phạm Minh Chính, thu nhập bình quân đầu người của Việt Nam đạt khoảng 4,300 USD năm 2023, tăng gần 60 lần so với năm 1986."
-  }
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -287,14 +275,6 @@ const NhanDinh = () => {
           </Card>
         </motion.div>
 
-        {/* Quiz Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0 }}
-        >
-          <Quiz data={quizData} />
-        </motion.div>
       </motion.div>
     </div>
   )

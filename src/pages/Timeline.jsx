@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Tooltip } from 'antd'
 import { motion } from 'framer-motion'
-import Quiz from '../components/Quiz'
 
 const Timeline = () => {
   const [selectedEvent, setSelectedEvent] = useState(null)
@@ -51,17 +50,6 @@ const Timeline = () => {
     }
   ]
 
-  const quizData = {
-    question: "Sự kiện nào đánh dấu bước ngoặt quan trọng nhất trong lịch sử Việt Nam hiện đại?",
-    options: [
-      "Chiến thắng Điện Biên Phủ (1954)",
-      "Thống nhất đất nước (1975)",
-      "Đổi mới kinh tế (1986)",
-      "Tất cả đều quan trọng"
-    ],
-    correctAnswer: 3,
-    explanation: "Mỗi sự kiện đều có ý nghĩa lịch sử quan trọng: 1954 mở ra độc lập, 1975 thống nhất đất nước, 1986 đổi mới phát triển. Tất cả đều là những bước ngoặt then chốt."
-  }
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -233,14 +221,6 @@ const Timeline = () => {
           </Card>
         </motion.div>
 
-        {/* Quiz Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-        >
-          <Quiz data={quizData} />
-        </motion.div>
       </motion.div>
     </div>
   )

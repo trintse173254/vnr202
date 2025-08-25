@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Tooltip } from 'antd'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 import { motion } from 'framer-motion'
-import Quiz from '../components/Quiz'
 
 const DoiMoi = () => {
   const gdpData = [
@@ -26,17 +25,6 @@ const DoiMoi = () => {
     { year: 2020, fdi: 15.8 }
   ]
 
-  const quizData = {
-    question: "Đổi mới kinh tế Việt Nam bắt đầu từ năm nào?",
-    options: [
-      "1975",
-      "1986", 
-      "1990",
-      "1995"
-    ],
-    correctAnswer: 1,
-    explanation: "Đại hội VI của Đảng (12/1986) đã chính thức khởi động chính sách Đổi mới, chuyển từ kinh tế kế hoạch hóa tập trung sang kinh tế thị trường định hướng xã hội chủ nghĩa."
-  }
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -219,14 +207,6 @@ const DoiMoi = () => {
           </Card>
         </motion.div>
 
-        {/* Quiz Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-        >
-          <Quiz data={quizData} />
-        </motion.div>
       </motion.div>
     </div>
   )
