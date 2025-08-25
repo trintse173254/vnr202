@@ -18,6 +18,7 @@ const Layout = ({ children }) => {
       {/* Left Sidebar */}
       <div className="w-80 bg-primary shadow-2xl">
         <div className="p-6 border-b border-red-800">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Emblem_of_Vietnam.svg" alt="Flag of Vietnam" className="w-16 h-16 mx-auto mb-4" />
           <h1 className="text-xl font-bold text-white text-center">
             Lịch sử Việt Nam
           </h1>
