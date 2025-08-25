@@ -8,6 +8,7 @@ import NhanDinh from './pages/NhanDinh'
 import Timeline from './pages/Timeline'
 import TuLieu from './pages/TuLieu'
 import QuizPage from './pages/QuizPage'
+import ChatBox from './components/ChatBox'
 
 const theme = {
   token: {
@@ -33,6 +34,13 @@ function App() {
             <Route path="/quiz" element={<QuizPage />} />
           </Routes>
         </Layout>
+
+        <ChatBox
+          title="AI Lịch sử Việt Nam"
+          subtitle="Trợ lý AI về thời kỳ bao cấp và đổi mới"
+          primaryColor="#B71C1C"
+          initialMessage="Xin chào! Tôi có thể giúp bạn tìm hiểu về thời kỳ bao cấp và đổi mới của Việt Nam. Bạn muốn biết điều gì?"
+        />
       </Router>
     </ConfigProvider>
   )
