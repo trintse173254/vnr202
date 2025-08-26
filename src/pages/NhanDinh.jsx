@@ -118,12 +118,12 @@ const NhanDinh = () => {
                   </div>
                   <div className="space-y-4">
                     <div className="bg-white p-4 rounded-lg shadow-sm">
-                      <div className="text-3xl font-bold text-blue-600 mb-2">$715.55B</div>
-                      <div className="text-sm text-gray-600">Tổng kim ngạch xuất nhập khẩu 11 tháng 2024 đạt 715,55 tỷ USD </div>
+                      <div className="text-3xl font-bold text-blue-600 mb-2">$786B</div>
+                      <div className="text-sm text-gray-600">Tổng kim ngạch xuất nhập khẩu 11 tháng 2024 đạt 786 tỷ USD </div>
                     </div>
                     <div className="bg-white p-4 rounded-lg shadow-sm">
                       <div className="text-3xl font-bold text-cyan-600 mb-2">$24.77B</div>
-                      <div className="text-sm text-gray-600">Thặng dư thương mại</div>
+                      <div className="text-sm text-gray-600">Thặng dư thương mại năm 2024 đạt 24,77 tỷ USD</div>
                     </div>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const NhanDinh = () => {
                 <div className="space-y-4">
                   <h4 className="text-xl font-semibold text-gray-800 flex items-center">
                     <LineChartOutlined className="mr-2 text-green-600" />
-                    Xuất khẩu tăng trưởng
+                    Xuất khẩu tăng trưởng(2024)
                   </h4>
                   <div className="space-y-3">
                     <div>
@@ -152,7 +152,7 @@ const NhanDinh = () => {
                 <div className="space-y-4">
                   <h4 className="text-xl font-semibold text-gray-800 flex items-center">
                     <DollarOutlined className="mr-2 text-blue-600" />
-                    Nhập khẩu tăng trưởng
+                    Nhập khẩu tăng trưởng(2024)
                   </h4>
                   <div className="space-y-3">
                     <div>

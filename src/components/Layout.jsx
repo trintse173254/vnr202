@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const menuItems = [
   { 
@@ -61,34 +61,49 @@ const menuItems = [
 
 const Layout = ({ children }) => {
   const location = useLocation()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   // Scroll to top when route changes
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [location.pathname])
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      {/* Top Bar */}
-      <div className="bg-primary shadow-2xl">
+      {/* Responsive Top Bar */}
+      <div className="bg-primary shadow-2xl relative z-50">
         {/* Header Section with Navigation */}
-        <div className="px-6 py-2 h-18">
-          <div className="flex items-center justify-between ml-28">
-            <div className="flex items-center space-x-4">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Emblem_of_Vietnam.svg" alt="Flag of Vietnam" className="w-12 h-12" />
-              <div>
-                <h1 className="text-xl font-bold text-white">
+        <div className="px-4 sm:px-6 py-3 lg:py-2">
+          <div className="flex items-center justify-between">
+            {/* Logo and Title - Always visible */}
+            <div className="flex items-center space-x-3 sm:space-x-4 min-w-0 flex-1 lg:flex-none">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Emblem_of_Vietnam.svg" 
+                alt="Emblem of Vietnam" 
+                className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0" 
+              />
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-xl font-bold text-white truncate">
                   Lịch sử Việt Nam
                 </h1>
-                <p className="text-red-200 text-sm">
+                <p className="text-red-200 text-xs sm:text-sm truncate">
                   Từ Bao cấp đến Đổi mới
                 </p>
               </div>
             </div>
             
-            {/* Navigation Bar */}
-            <nav className="mr-28">
-              <div className="flex justify-end space-x-1 overflow-x-auto">
+            {/* Desktop Navigation - Hidden on mobile */}
+            <nav className="hidden lg:block">
+              <div className="flex space-x-1">
                 {menuItems.map((item) => {
                   const isActive = location.pathname === item.path || 
                                  (location.pathname === '/' && item.path === '/bao-cap')
@@ -99,15 +114,130 @@ const Layout = ({ children }) => {
                       to={item.path}
                       className={`topbar-item ${isActive ? 'active' : ''}`}
                     >
-                      <span className="text-xl mr-2">{item.icon}</span>
+                      <span className="text-lg mr-2">{item.icon}</span>
                       <span className="font-medium whitespace-nowrap">{item.label}</span>
                     </Link>
                   )
                 })}
               </div>
             </nav>
+
+            {/* Mobile Menu Button - Only visible on mobile */}
+            <button
+              onClick={toggleMobileMenu}
+              className="lg:hidden p-2 rounded-md text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-300 transition-colors duration-200"
+              aria-label="Toggle navigation menu"
+            >
+              <motion.div
+                animate={isMobileMenuOpen ? "open" : "closed"}
+                className="w-6 h-6 flex flex-col justify-center items-center"
+              >
+                <motion.span
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: 45, y: 6 }
+                  }}
+                  className="w-6 h-0.5 bg-white block transition-all duration-300 origin-center"
+                />
+                <motion.span
+                  variants={{
+                    closed: { opacity: 1 },
+                    open: { opacity: 0 }
+                  }}
+                  className="w-6 h-0.5 bg-white block mt-1.5 transition-all duration-300"
+                />
+                <motion.span
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: -45, y: -6 }
+                  }}
+                  className="w-6 h-0.5 bg-white block mt-1.5 transition-all duration-300 origin-center"
+                />
+              </motion.div>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 bg-black bg-opacity-50 lg:hidden z-40"
+                onClick={() => setIsMobileMenuOpen(false)}
+              />
+              
+              {/* Mobile Menu */}
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl lg:hidden z-50 overflow-y-auto"
+              >
+                {/* Mobile Menu Header */}
+                <div className="bg-primary p-4 flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Emblem_of_Vietnam.svg" 
+                      alt="Emblem of Vietnam" 
+                      className="w-8 h-8" 
+                    />
+                    <div>
+                      <h2 className="text-white font-bold text-sm">Menu</h2>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 rounded-md text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-300"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Mobile Menu Items */}
+                <nav className="p-4">
+                  <div className="space-y-2">
+                    {menuItems.map((item, index) => {
+                      const isActive = location.pathname === item.path || 
+                                     (location.pathname === '/' && item.path === '/bao-cap')
+                      
+                      return (
+                        <motion.div
+                          key={item.path}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                        >
+                          <Link
+                            to={item.path}
+                            className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-200 ${
+                              isActive 
+                                ? 'bg-red-50 text-red-700 border-l-4 border-red-600' 
+                                : 'text-gray-700 hover:bg-gray-50 hover:text-red-600'
+                            }`}
+                          >
+                            <span className={`text-xl ${isActive ? 'text-red-600' : 'text-gray-500'}`}>
+                              {item.icon}
+                            </span>
+                            <span className="font-medium">{item.label}</span>
+                          </Link>
+                        </motion.div>
+                      )
+                    })}
+                  </div>
+                </nav>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Content Area */}
