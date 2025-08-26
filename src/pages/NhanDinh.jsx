@@ -358,7 +358,7 @@ const NhanDinh = () => {
                   <div className="space-y-4">
                     <div className="bg-white p-4 rounded-lg shadow-sm">
                       <div className="text-3xl font-bold text-green-600 mb-2">$4,500</div>
-                      <div className="text-sm text-gray-600">GDP bình quân đầu người tăng từ {'<'} $700 (1986) lên ~ $4,500 (2023) </div>
+                      <div className="text-sm text-gray-600">GDP bình quân đầu người tăng từ {'<'} $700 (1986) lên ~ $4,500 (2024) </div>
                     </div>
                     <div className="bg-gradient-to-r from-green-100 to-emerald-100 p-3 rounded-lg">
                       <div className="text-sm text-green-700 font-semibold">Tăng trưởng 6.4 lần</div>
@@ -486,7 +486,7 @@ const NhanDinh = () => {
                     <ul className="space-y-2 text-sm text-gray-700">
                       <li>• GDP tăng 7.09% năm 2024 ($476.3B)</li>
                       <li>• Xuất nhập khẩu $715.55B (11 tháng 2024)</li>
-                      <li>• Thu nhập bình quân $4,500/người</li>
+                      <li>• GDP bình quân đầu người năm 2024 khoảng $4500</li>
                       <li>• Thặng dư thương mại $24.77B</li>
                     </ul>
                   </div>
