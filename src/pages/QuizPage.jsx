@@ -96,8 +96,8 @@ const QuizPage = () => {
           explanation: "Việt Nam chính thức gia nhập WTO vào ngày 11/1/2007, đánh dấu bước ngoặt quan trọng trong hội nhập kinh tế quốc tế."
         },
         {
-          question: "Thu nhập bình quân đầu người của Việt Nam năm 2023 là bao nhiêu?",
-          options: ["3,800 USD", "4,300 USD", "5,200 USD", "3,200 USD"],
+          question: "Thu nhập bình quân đầu người của Việt Nam năm 2024 là bao nhiêu?",
+          options: ["3,800 USD", "4,500 USD", "5,200 USD", "3,200 USD"],
           correctAnswer: 1,
           explanation: "Theo World Bank, thu nhập bình quân đầu người Việt Nam đạt khoảng 4,300 USD năm 2023, tăng gần 60 lần so với 1986."
         },
