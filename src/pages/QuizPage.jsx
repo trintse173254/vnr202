@@ -144,8 +144,8 @@ const QuizPage = () => {
       icon: "🇻🇳",
       questions: [
         {
-          question: "Thu nhập bình quân đầu người của Việt Nam năm 2023 đạt mức nào?",
-          options: ["Khoảng 2,500 USD", "Khoảng 4,300 USD", "Khoảng 6,000 USD", "Khoảng 3,800 USD"],
+          question: "Thu nhập bình quân đầu người của Việt Nam năm 2024 đạt mức nào?",
+          options: ["Khoảng 2,500 USD", "Khoảng 4,500 USD", "Khoảng 6,000 USD", "Khoảng 3,800 USD"],
           correctAnswer: 1,
           explanation: "Theo World Bank, thu nhập bình quân đầu người của Việt Nam đạt khoảng 4,300 USD năm 2023, tăng gần 60 lần so với năm 1986."
         },
