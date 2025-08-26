@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Tooltip } from 'antd'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar } from 'recharts'
 import { motion } from 'framer-motion'
+import Timeline from './Timeline'
 
 const DoiMoi = () => {
   const gdpData = [
@@ -337,7 +338,7 @@ const DoiMoi = () => {
                       </div>
                       <div>
                         <h5 className="font-semibold text-blue-700">Tổ chức Thương mại Thế giới</h5>
-                        <p className="text-sm text-blue-600">Thành viên từ 2007</p>
+                        <p className="text-sm text-blue-600">Thành viên từ 11/01/2007</p>
                         <p className="text-xs text-blue-500 mt-1">Mở cửa thị trường, tăng cường thương mại</p>
                       </div>
                     </div>
@@ -354,7 +355,7 @@ const DoiMoi = () => {
                       </div>
                       <div>
                         <h5 className="font-semibold text-green-700">Liên Hợp Quốc</h5>
-                        <p className="text-sm text-green-600">Thành viên từ 1977</p>
+                        <p className="text-sm text-green-600">Thành viên từ 20/09/1977</p>
                         <p className="text-xs text-green-500 mt-1">Hợp tác đa phương, phát triển bền vững</p>
                       </div>
                     </div>
@@ -371,7 +372,7 @@ const DoiMoi = () => {
                       </div>
                       <div>
                         <h5 className="font-semibold text-purple-700">Hiệp hội Đông Nam Á</h5>
-                        <p className="text-sm text-purple-600">Thành viên từ 1995</p>
+                        <p className="text-sm text-purple-600">Thành viên từ 28/07/1995</p>
                         <p className="text-xs text-purple-500 mt-1">Hợp tác khu vực, phát triển kinh tế</p>
                       </div>
                     </div>
@@ -388,7 +389,7 @@ const DoiMoi = () => {
                       </div>
                       <div>
                         <h5 className="font-semibold text-orange-700">Diễn đàn Hợp tác Kinh tế châu Á-Thái Bình Dương</h5>
-                        <p className="text-sm text-orange-600">Thành viên từ 1998</p>
+                        <p className="text-sm text-orange-600">Thành viên từ 11/1998</p>
                         <p className="text-xs text-orange-500 mt-1">Thúc đẩy thương mại, đầu tư</p>
                       </div>
                     </div>
@@ -476,6 +477,15 @@ const DoiMoi = () => {
         >
           <Quiz data={quizData} />
         </motion.div> */}
+
+        {/* Timeline Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <Timeline />
+        </motion.div>
       </motion.div>
     </div>
   )

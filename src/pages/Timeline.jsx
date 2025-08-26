@@ -40,7 +40,7 @@ const Timeline = () => {
           </p>
         </div>
 
-        <Card className="content-card">
+        <div className="content-card">
           <div className="relative">
             <motion.div
               className="absolute left-1/2 top-0 -translate-x-1/2 h-full w-1 bg-primary"
@@ -210,7 +210,7 @@ const Timeline = () => {
               })}
             </div>
           </div>
-        </Card>
+        </div>
       </motion.div>
     </div>
   )
